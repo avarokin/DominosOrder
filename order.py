@@ -1,4 +1,5 @@
 from pizzapi import *
+import getpass
 
 first_name = input("Enter first name: ")
 last_name = input("Enter last name: ")
@@ -21,10 +22,11 @@ order = Order(store,customer,address)
 
 choice = 0
 
-while(1)
+while True:
 
-    print("""\n\nSelect an option \n1. Add to order
-     \n2.Remove from order \n3. Order complete""")
+    print("""\n\nSelect an option \n1. Add to order \n2.Remove from order \n3. Order complete""")
+
+    choice = input()
 
     if choice == 1:
         name = input("Enter search term: ")
@@ -44,3 +46,13 @@ while(1)
 print("\n\nEnter payement details: ")
 
 card_numer = input("Enter Debit/Credit card number: ")
+expiration = input("Enter expiration in format MMYY: ")
+print("Enter three digit pin: ")
+cvv = getpass.getpass()
+post_code = input("Enter postal code: ")
+
+card = PaymentObject(card_numer,expiration,cvv,post_code)
+
+input("Hit enter to place order, ctrl+c to cancel!")
+
+order.pay_with(card)
