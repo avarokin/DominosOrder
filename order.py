@@ -17,6 +17,30 @@ address = Address(street,city,state,post_code)
 store = address.closest_store()
 menu = store.get_menu()
 
-menu.display()
+order = Order(store,customer,address)
+
+choice = 0
+
+while(1)
+
+    print("""\n\nSelect an option \n1. Add to order
+     \n2.Remove from order \n3. Order complete""")
+
+    if choice == 1:
+        name = input("Enter search term: ")
+        menu.search(Name =name)
+
+        item = input("Enter code of desired item: ")
+        menu.add_item(item)
+
+    elif choice == 2:
+        item = input("Enter code of item to remove: ")
+        menu.remove_item(item)
+
+    else:
+        break
 
 
+print("\n\nEnter payement details: ")
+
+card_numer = input("Enter Debit/Credit card number: ")
