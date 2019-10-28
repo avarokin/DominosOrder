@@ -15,3 +15,8 @@ post_code = input("Enter postal code: ")
 address = Address(street,city,state,post_code)
 
 store = address.closest_store()
+menu = store.get_menu()
+
+menu.display()
+
+
