@@ -15,31 +15,29 @@ post_code = input("Enter postal code: ")
 
 address = Address(street,city,state,post_code)
 
-store = address.closest_store()
-menu = store.get_menu()
+#store = address.closest_store()
+#menu = store.get_menu()
 
-order = Order(store,customer,address)
+#order = Order(store,customer,address)
 
 choice = 0
 
 while True:
 
-    print("""\n\nSelect an option \n1. Add to order \n2.Remove from order \n3. Order complete""")
+    choice = input("\nSelect an option \n1. Add to order \n2.Remove from order \n3. Order complete\n->")
 
-    choice = input()
-
-    if choice == 1:
+    if choice == "1":
         name = input("Enter search term: ")
         menu.search(Name =name)
 
         item = input("Enter code of desired item: ")
         menu.add_item(item)
 
-    elif choice == 2:
+    elif choice == "2":
         item = input("Enter code of item to remove: ")
         menu.remove_item(item)
 
-    else:
+    elif choice == "3":
         break
 
 
